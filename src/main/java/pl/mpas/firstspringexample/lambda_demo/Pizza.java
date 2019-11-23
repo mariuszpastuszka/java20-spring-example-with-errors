@@ -1,5 +1,7 @@
 package pl.mpas.firstspringexample.lambda_demo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -19,10 +21,12 @@ public class Pizza {
         this.ingredients = ingredients;
     }
 
+    @JsonIgnore
     public double getPrice() {
         return price;
     }
 
+    @JsonIgnore
     public int getSize() {
         return size;
     }
@@ -56,14 +60,7 @@ public class Pizza {
         // z listy wybierz nazwy pizz
         // wybierz liste unikalnych składników
 
-        List<Pizza> pizzas = Arrays.asList(
-                new Pizza(35, 50, "hawajska",
-                        Arrays.asList("pomidory", "ananasy", "papryka")),
-                new Pizza(45, 50, "wiejska",
-                        Arrays.asList("boczek", "ananasy", "papryka")),
-                new Pizza(55, 40, "meksykańska",
-                        Arrays.asList("ostra papryczka", "salami", "papryka"))
-        );
+        List<Pizza> pizzas = getPizzas();
 
         pizzas.stream()
                 .map(pizza -> pizza.getName())
@@ -77,5 +74,16 @@ public class Pizza {
                 .collect(Collectors.toList());
 
         System.out.println("ing: " + uniqueIng);
+    }
+
+    public static List<Pizza> getPizzas() {
+        return Arrays.asList(
+                    new Pizza(35, 50, "hawajska",
+                            Arrays.asList("pomidory", "ananasy", "papryka")),
+                    new Pizza(45, 50, "wiejska",
+                            Arrays.asList("boczek", "ananasy", "papryka")),
+                    new Pizza(55, 40, "meksykańska",
+                            Arrays.asList("ostra papryczka", "salami", "papryka"))
+            );
     }
 }
