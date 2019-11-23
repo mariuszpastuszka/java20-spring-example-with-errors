@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2 th:text="'Nowe menu w pizerii ' + ${localName}">Nowe menu w pizerii .... </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Cena</th>
+                <th>Wielkość</th>
+                <th>Składniki</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--for (Pizza pizza: Pizza.getPizzas())-->
+            <tr th:each="pizza : ${allpizzas}">
+                <td th:text="${pizza.name}">SDA Pizza</td>
+                <td th:text="${pizza.price}">1000 PLN</td>
+                <td th:text="${pizza.size}">Duża</td>
+                <td th:text="${pizza.ingredients}">Dobroci</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
