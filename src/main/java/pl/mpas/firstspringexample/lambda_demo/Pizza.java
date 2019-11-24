@@ -1,18 +1,36 @@
 package pl.mpas.firstspringexample.lambda_demo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import pl.mpas.firstspringexample.repository.PizzaRepo;
 
+import javax.persistence.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@Entity
 public class Pizza {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private double price;
     private int size;
     private String name;
+    @ElementCollection
     private List<String> ingredients;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Pizza() {
+    }
 
     public Pizza(double price, int size, String name, List<String> ingredients) {
         this.price = price;
@@ -77,13 +95,6 @@ public class Pizza {
     }
 
     public static List<Pizza> getPizzas() {
-        return Arrays.asList(
-                    new Pizza(35, 50, "hawajska",
-                            Arrays.asList("pomidory", "ananasy", "papryka")),
-                    new Pizza(45, 50, "wiejska",
-                            Arrays.asList("boczek", "ananasy", "papryka")),
-                    new Pizza(55, 40, "meksykańska",
-                            Arrays.asList("ostra papryczka", "salami", "papryka"))
-            );
+        return PizzaRepo.pizzas;
     }
 }
