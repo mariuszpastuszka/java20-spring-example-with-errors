@@ -16,3 +16,14 @@ public class PizzaRestController {
         return Pizza.getPizzas();
     }
 }
+
+
+// TODO
+// 2 contollery - 1 webowy, 1 restowy
+// na webowym wyswietlacie swój adres
+// na restowym także
+// class Address {
+//  String city;
+// String street;
+// String postalCode;
+// }
