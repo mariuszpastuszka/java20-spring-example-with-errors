@@ -4,12 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import pl.mpas.firstspringexample.repository.PizzaRepo;
 
 import javax.persistence.*;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@Entity
+//@Entity
 public class Pizza {
 
     @Id
@@ -18,7 +17,7 @@ public class Pizza {
     private double price;
     private int size;
     private String name;
-    @ElementCollection
+//    @ElementCollection
     private List<String> ingredients;
 
     public Long getId() {

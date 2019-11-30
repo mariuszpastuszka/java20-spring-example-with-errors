@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Posiadacze</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Owner</th>
+        <th>Pet - rodzaj</th>
+        <th>Pet - imie</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--for (Owner zmiennaIteracji: posiadacze)-->
+    <tr th:each="zmiennaIteracji : ${posiadacze}">
+        <td th:text="${zmiennaIteracji.nick}">Zenon</td>
+        <!--<td th:text="${zmiennaIteracji.getPet().getKind()}">Pies</td>-->
+        <td th:text="${zmiennaIteracji.pet.kind}">Pies</td>
+        <td th:text="${zmiennaIteracji.pet.name}">Burek</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
