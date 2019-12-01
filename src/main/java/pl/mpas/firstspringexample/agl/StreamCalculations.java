@@ -4,10 +4,7 @@ import pl.mpas.firstspringexample.domain.Owner;
 import pl.mpas.firstspringexample.domain.Secret;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class StreamCalculations {
@@ -43,7 +40,24 @@ public class StreamCalculations {
     }
 
     static class Acumulator {
+        //
         int numberOfElem;
         int sum;
     }
+
+//    private static void calucations(String s) {
+//        Map<Character, Integer> charsOversCounter = new HashMap<>();
+//        for (int i = 0; i < s.length(); i++) {
+//            char c = s.charAt(i);
+//            if (charsOversCounter.containsKey(c)) {
+//                charsOversCounter.get(c);
+//            } else {
+//                charsOversCounter.put(c, 1);
+//            }
+//        }
+//
+//        charsOversCounter.entrySet().stream()
+//                .filter(characterIntegerEntry -> characterIntegerEntry.getValue() > 1)
+//                .collect()
+//    }
 }
