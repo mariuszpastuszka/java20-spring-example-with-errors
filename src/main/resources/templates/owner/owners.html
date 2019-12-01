@@ -11,19 +11,20 @@
     <thead>
     <tr>
         <th>Owner</th>
-        <th>Pet - rodzaj</th>
-        <th>Pet - imie</th>
+        <th>Link do zwierzątka</th>
     </tr>
     </thead>
     <tbody>
     <!--for (Owner zmiennaIteracji: posiadacze)-->
     <tr th:each="zmiennaIteracji : ${posiadacze}">
         <td th:text="${zmiennaIteracji.nick}">Zenon</td>
+        <td><a href="#" th:href="'/pets/pet/' + ${zmiennaIteracji.pet.id}">Zwierz</a></td>
         <!--<td th:text="${zmiennaIteracji.getPet().getKind()}">Pies</td>-->
-        <td th:text="${zmiennaIteracji.pet.kind}">Pies</td>
-        <td th:text="${zmiennaIteracji.pet.name}">Burek</td>
+        <!--<td th:text="${zmiennaIteracji.pet.kind}">Pies</td>-->
+        <!--<td th:text="${zmiennaIteracji.pet.name}">Burek</td>-->
     </tr>
     </tbody>
 </table>
+    <p>Dodajemy nowego <a href="#" th:href="@{/owner/new-owner-form}">Ownera</a></p>
 </body>
 </html>

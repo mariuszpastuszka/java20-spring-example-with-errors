@@ -24,4 +24,12 @@ public class OwnerService {
         logger.info("results from db: [{}]", result);
         return result;
     }
+
+    public Owner saveOwner(Owner toSave) {
+        logger.info("owner before save: [{}]", toSave);
+        Owner saved = ownerRepository.save(toSave);
+        logger.info("owner before save: [{}]", saved);
+
+        return saved;
+    }
 }

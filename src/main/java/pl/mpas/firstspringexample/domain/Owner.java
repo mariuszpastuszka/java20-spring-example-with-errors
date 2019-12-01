@@ -48,6 +48,15 @@ public class Owner {
         return pet;
     }
 
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "id=" + id +
+                ", nick='" + nick + '\'' +
+                ", pet=" + pet +
+                '}';
+    }
+
     public void setPet(Pet pet) {
         this.pet = pet;
     }
